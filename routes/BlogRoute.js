@@ -26,10 +26,10 @@ blogRoute.post("/create", async (req, res) => {
 blogRoute.patch("/update/:id", async (req, res) => {
   const Id = req.params.id;
   const payload = req.body;
-  const blogID = payload.id;
+  const userID = payload.userID;
   try {
     const findBlog = await BlogModel.find({ _id: Id });
-    if (findBlog[0].id === blogID) {
+    if (findBlog[0].userID === userID) {
       await BlogModel.findByIdAndUpdate({ _id: Id, payload });
       res.send({ msg: payload });
     } else {
