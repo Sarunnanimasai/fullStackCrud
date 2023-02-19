@@ -7,7 +7,6 @@ const Auth = (req, res, next) => {
       res.send({ msg: "Please Login" });
     } else {
       req.body.userID = decoded.userID;
-      req.body.id = decoded.length;
       next();
     }
   });
